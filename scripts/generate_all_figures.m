@@ -52,7 +52,7 @@ if strcmp(additionalStr, '_v0'); figureDir = 'output/figures/final/'; end
 if ~exist(figureDir, 'dir'); mkdir(figureDir); end
 
 % Set supplementary figure output folder
-supFigureDir = ['output/figures/final/supplementary/'];
+supFigureDir = [rootDir 'output/figures/final/supplementary/'];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% figure 1 - experiement, data, analysis. 
