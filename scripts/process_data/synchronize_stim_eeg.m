@@ -2,7 +2,7 @@ rootDir = '../../';
 
 % Get metadata table for all SuperTuxkart races to easily load in video
 % and eeg data for processing.
-dataDir = 'data/supertuxkart-active-passive/'
+dataDir = 'data/supertuxkart-active-passive/';
 metadataPath  = [rootDir dataDir 'metadata/metadataTableFinal.mat'];
 load(metadataPath);
 nRaces = height(metadataTable); % total number of races recorded.

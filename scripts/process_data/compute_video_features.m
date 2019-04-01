@@ -1,5 +1,5 @@
 clear all; 
-rootDir = '../';
+rootDir = '../../';
 load_all_deps(rootDir); %load dependencies for the ARL project
 
 dataDir = 'data/supertuxkart-active-passive/';

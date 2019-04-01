@@ -1,17 +1,16 @@
 %% Stimulus and Neural Response Analysis during Active vs Passive State
 % By Jason Ki
 close all; clear all
-rootDir = '../'
-load_all_deps(rootDir)
+rootDir = '../';
 
 %% Load Data
-computedValueDir = 'output/computed_values/';
-dataDir = 'output/data_processed_for_analysis/';  eegType = 'eeg_jason_'; version = 'v1'; 
+computedValueDir = [rootDir 'output/computed_values/'];
+dataDir = [rootDir 'output/data_processed_for_analysis/'];  eegType = 'eeg_jason_'; version = 'v1'; 
 load([dataDir  eegType version], 'Eeg'); % Eeg{i}(nSamples, nChannels)
 
 % stimulusFileName = 'temporal_contrast_mean_trf.mat';
 stimulusName = 'temporal_contrast';
-% stimulusName = 'optical_flow';
+stimulusName = 'optical_flow';
 stimulusFileName = [stimulusName '_mean_trf.mat'];
 load([dataDir stimulusFileName], 'X'); % X{i}(nSamples, nChannels)
 load([dataDir 'metadata'],  'uniqueConditionIndex', 'conditionIndex') ;

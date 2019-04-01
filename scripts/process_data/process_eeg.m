@@ -1,8 +1,6 @@
 % This script analyzes preprocessing pipeline for eeg for most optimal and robust eeg signal.
 % metadata for input data
-clear all;
-rootDir = '../';
-load_all_deps(rootDir);
+rootDir = '../../';
 
 dataDir = 'data/supertuxkart-active-passive/';
 metadataTablePath  = [rootDir dataDir 'metadata/metadataTableFinal.mat'];
@@ -115,7 +113,7 @@ for iRace = indexRaceID
         titleFigureStr = ['race ' fileIDNumStr ' subj ' subjectNumStr ' ' conditionStr ' ' trialNumStr];
         suptitle(titleFigureStr)
         
-        pathFigureA = ['../figures/preprocessing/processing_streamline_' outFileNamePrefix '/run_' nameRaceStr '.png'];
+        pathFigureA = ['output/figures/preprocessing/processing_streamline_' outFileNamePrefix '/run_' nameRaceStr '.png'];
         saveas(figA,pathFigureA);pause(.01);close
         
         % Draw topolot of eeg after all preprocessing.
@@ -125,7 +123,7 @@ for iRace = indexRaceID
         figB = figure('Position', get(0, 'Screensize'));
         [U, S, V] = drawSVDTopoplot(eegBadChannelsRemoved_, locFilename);
         suptitle(titleFigureStr)
-        pathFigureB = ['../figures/preprocessing/topoplot_processed_' outFileNamePrefix '/run_' nameRaceStr '.png'];
+        pathFigureB = ['output/figures/preprocessing/topoplot_processed_' outFileNamePrefix '/run_' nameRaceStr '.png'];
         saveas(figB,pathFigureB); pause(.01); close
         
         figure
