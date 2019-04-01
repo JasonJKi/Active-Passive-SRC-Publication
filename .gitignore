@@ -6,7 +6,6 @@ output/figures/dump/
 output/figures/final/temporal_contrast/
 output/demo/
 output/computed_values/tmp/
-!output/computed_values/output/computed_values/metadata_inputs_for_analysis_final.mat
 output/data_processed_for_analysis/*
 !output/data_processed_for_analysis/optical_flow_mean.mat
 !output/data_processed_for_analysis/metadata.mat
@@ -25,3 +24,4 @@ libs/_external/eeglab/
 
 # Ignore figrues that are not part of the press.
 scripts/generate_figures/prep-press/
+script/tmp/

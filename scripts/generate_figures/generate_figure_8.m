@@ -1,4 +1,4 @@
-function [fig, stats] = generate_figure_s1_2(inputs, windowSize)
+function [fig, stats] = generate_figure_8(inputs, windowSize)
 %% Draw SRC and engagement rating of each viewing condition.
 
 % parse CCA and SRC variables
@@ -172,12 +172,11 @@ for i = 1:numComponents
     plotHandle = ha2(i);
     val = AW(:,i);
     
-    topoPlot = setMap(Topomap('JBhead96_sym.loc'));
-    topoPlot.setPlotHandle(plotHandle);
-    topoPlot.drawMaskHeadRing(.5);
-    topoPlot.drawNoseAndEars(.5);
-    topoPlot.formatPlot(plotHandle);
-    topoPlot.draw(val);
+    topoPlot = ScalpPlot('JBhead96_sym.loc')
+    scalpPlot.setMap();
+    scalpPlot.setPlotHandle(plotHandle);
+
+    scalpPlot.draw(val);
     
     % set color axes for the topoplot
     colorMapVal = jet;
@@ -188,7 +187,7 @@ for i = 1:numComponents
     colorAxisRange = [-absMax absMax];
     cAxis = [-absMax 0 absMax];
     cAxisTickLabel = {num2str(absMin,3), '\muV', num2str(absMax,3)};
-    topoPlot.setColorAxis(colorAxisRange, colorMapVal);
+    scalpPlot.setColorAxis(colorAxisRange, colorMapVal);
     
 
 end

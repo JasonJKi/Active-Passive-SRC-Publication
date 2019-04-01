@@ -1,7 +1,8 @@
 % This script analyzes preprocessing pipeline for eeg for most optimal and robust eeg signal.
 % metadata for input data
-clear all
-rootDir = '../../';
+clear all;
+rootDir = '../';
+load_all_deps(rootDir);
 
 dataDir = 'data/supertuxkart-active-passive/';
 metadataTablePath  = [rootDir dataDir 'metadata/metadataTableFinal.mat'];
@@ -9,7 +10,8 @@ load(metadataTablePath);
 [nRaces, nVariables] = size(metadataTable);
 
 locFilename = 'JBhead96_sym.loc';
-outFileNamePrefix = 'processed_eeg_jason_v1_';
+outFileEegName = 'eeg_jason_v1';
+outputDataDir = 'output/data_processed_for_analysis/';
 
 % EEG processing/ filtering logic
 eyeArtifactRemovalStatus = true;
@@ -36,16 +38,15 @@ methods.driftFilterStatus = true;
 
 draw = false;
 %% Step 1 - zero mean, drift filter and eyemovement regression on every run.
-for iRace = 1:nRaces
-    
+indexRaceID = [1:74 104:139];
+iter = 1; 
+Eeg = {};
+for iRace = indexRaceID
     fileNamePrefix = 'epoched_eeg_';
     % Set and input and output path.
     matFileDir = metadataTable.matFileDir{iRace};
     matFileName = metadataTable.matFileName{iRace};
     matFilePath = [rootDir dataDir matFileDir fileNamePrefix matFileName];
-    
-    outFileName = [outFileNamePrefix matFileName];
-    outFilePath = [rootDir dataDir matFileDir outFileName];
     
     % Get race information and assign num and string variables.
     fileIDNum = metadataTable.fileID(iRace); 
@@ -81,6 +82,8 @@ for iRace = 1:nRaces
         eegProcessed = eegRPCA;
     end
     
+    %     eegOffset1 = eegProcessed - repmat(eegProcessed(1,:),namples,1);
+
     % Mean subtraction
     eegOffset = eegProcessed - repmat(mean(eegProcessed,2),1,nChannels);
     eegProcessed = eegOffset;
@@ -94,13 +97,13 @@ for iRace = 1:nRaces
     
     if nanBadSampleRejectionStatus
         % Remove samples based on the standard deviation of the sample across time.
-        [eegBadSamplesRemoved, mask1] = removeTimeSeriesArtifact(eegProcessed, 3, 2 , fs);    
+        [eegBadSamplesRemoved, mask1] = removeTimeSeriesArtifact(eegProcessed, 5, 4 , fs);    
         eegProcessed = eegBadSamplesRemoved;
     end
     
     if nanBadChannelRejectionStatus
         % Remove samples based on the standard deviation of the sample across channels.
-        [eegBadChannelsRemoved, mask2] = removeSpatialArtifact(eegBadSamplesRemoved, 2);
+        [eegBadChannelsRemoved, mask2] = removeSpatialArtifact(eegBadSamplesRemoved, 3);
         eegProcessed = eegBadChannelsRemoved;
     end
     
@@ -131,6 +134,13 @@ for iRace = 1:nRaces
         figure
         [U, S, V] = drawSVDTopoplot(eegBadChannelsRemoved_, locFilename);
     end
-    disp(['saving processed eeg as ' outFilePath])    
-    save(outFilePath, 'eegProcessed', 'eegEyemovementRegressed', 'methods')
+     
+%     disp(['saving processed eeg as ' outFilePath])    
+%     save(outFilePath, 'eegProcessed', 'eegEyemovementRegressed', 'methods')
+    conditionStrIndex{iter} = conditionStr;
+    Eeg{iter} = eegProcessed;
+    iter = iter + 1;
 end
+[conditionIndex,conditionNames] = grp2idx(conditionStrIndex');
+save([outputDataDir outFileEegName], 'Eeg', 'conditionIndex');
+

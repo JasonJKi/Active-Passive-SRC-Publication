@@ -49,7 +49,6 @@ input_for_analysis.locFile = 'JBhead96_sym.loc';
 % Set figure output folder
 figureDir = [rootDir 'output/figures/final/' stimulusType];
 if strcmp(additionalStr, '_v0'); figureDir = 'output/figures/final/'; end
-if ~exist(figureDir, 'dir'); mkdir(figureDir); end
 
 % Set supplementary figure output folder
 supFigureDir = [rootDir 'output/figures/final/supplementary/'];
