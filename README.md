@@ -6,4 +6,4 @@ Authors: Jason J. Ki, Lucas C. Parra, Jacek P. Dmochowski
 
 Institution: Department of Biomedical Engineering, City College of New York, NewYork, NY 10031, USA
 
-#### In submission.
+#### Under submission.
