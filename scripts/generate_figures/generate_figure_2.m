@@ -57,12 +57,10 @@ for i = 1:numComponentsToPlot
  
     plotHandle = ha1(i);
     
-    topoPlot = setMap(Topomap('JBhead96_sym.loc'));
-    topoPlot.setPlotHandle(plotHandle);
-    topoPlot.drawMaskHeadRing(.5);
-    topoPlot.drawNoseAndEars(.5);
-    topoPlot.formatPlot(plotHandle);
-    topoPlot.draw(val);
+    scalpPlot = ScalpPlot('JBhead96_sym.loc');
+    scalpPlot.setMap();
+    scalpPlot.setPlotHandle(plotHandle);
+    scalpPlot.draw(val);
     
     % Draw color bar to indicate color axis scale.
     colorMapVal = jet;
@@ -74,8 +72,8 @@ for i = 1:numComponentsToPlot
     colorAxisRange = [minVal maxVal];
     cAxis = [minVal meanVal maxVal];
     cAxisTickLabel = {num2str(minVal, '%0.0f'), '\muV', num2str(maxVal,'%0.0f')};
-    topoPlot.setColorAxis(colorAxisRange, colorMapVal);
-    topoPlot.setColorBar(cAxis, cAxisTickLabel);
+    scalpPlot.setColorAxis(colorAxisRange, colorMapVal);
+    scalpPlot.drawColorBar(cAxis, cAxisTickLabel, 'westoutside');
     
     text(-.8, .8 ,panelLabel(i),'FontSize',textSizePanelTitle, 'FontWeight','Normal');
     title(['Component ' num2str(i)], 'FontSize', textSizePanelTitle, 'FontWeight','Normal');

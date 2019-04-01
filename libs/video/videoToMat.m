@@ -49,6 +49,10 @@ height = videoObj.Height;
 
 i = 1;
 while hasFrame(videoObj)
+    if (mod(i, 1000) == 0) || (i == 1)
+        disp(['reading frame: ' num2str(i)])
+    end
+    
     frame = readFrame(videoObj);
     
     if scale
@@ -69,9 +73,12 @@ while hasFrame(videoObj)
     
     video(i,:,:,:) = frame;
     videoGray(i,:,:) = frameGray;
+    
+   
+
     i = i+1;
-    disp(i)
-end
+end    
+    
 
 if boolGray
     video = squeeze(video);

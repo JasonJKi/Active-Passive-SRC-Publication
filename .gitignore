@@ -4,8 +4,9 @@ tmp/
 # Output folders to be ignored
 output/figures/dump/
 output/figures/final/temporal_contrast/
-output/data_processed_for_analysis/*
 output/demo/
+output/computed_values/*
+!output/computed_values/output/computed_values/metadata_inputs_for_analysis_final.mat
 output/data_processed_for_analysis/*
 !output/data_processed_for_analysis/optical_flow_mean.mat
 !output/data_processed_for_analysis/metadata.mat

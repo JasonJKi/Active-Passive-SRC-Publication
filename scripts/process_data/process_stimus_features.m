@@ -1,6 +1,5 @@
 clear all; 
-rootDir = '../';
-load_all_deps(rootDir); %load dependencies for the ARL project
+rootDir = '../../';
 
 dataDir = 'data/supertuxkart-active-passive/';
 metadataTablePath = [rootDir dataDir 'metadata/metadataTableFinal.mat'];

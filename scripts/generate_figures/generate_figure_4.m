@@ -130,9 +130,9 @@ rhoDeceived = [rhoSumPlayDeceived rhoSumBciDeceived rhoSumWatchDeceived];
 rhoNotDeceived = [rhoSumPlayNotDeceived rhoSumBciNotDeceived rhoSumWatchNotDeceived];
 
 eb1 = errorbar(xPos([1 3 5]), rhoSumMeanAll1Deceived, semRhoDeceived, '.', 'Color', errorBarColor, 'MarkerSize', 5,'LineWidth',2);
-alpha(eb1, .15)
+% alpha(eb1, .15)
 eb2 =errorbar(xPos([2 4 6]), rhoSumMeanAll1NotDeceived, semRhoNotDeceived,'.', 'Color', errorBarColor, 'MarkerSize', 5,'LineWidth',2);
-alpha(eb2, .15)
+% alpha(eb2, .15)
 
 groups = [xPos(1:2); xPos(3:4); xPos(5:6)];
 groupsCellDeveivedVsNotDeceived = {xPos(3:4)};
@@ -226,9 +226,9 @@ bar(xPos(4), engagementMeanTestBciNotDeceived, 'FaceColor', barColor{2}, 'EdgeCo
 bar(xPos(6), engagementMeanTestWatchNotDeceived,  'FaceColor', barColor{3}, 'EdgeColor', deceptionColor{2}, 'LineWidth' ,1.5);
 
 eb1 = errorbar(xPos([1 3 5]), engagementMeanAll1Deceived, semEngagementDeceived, '.', 'Color', errorBarColor, 'MarkerSize', 5,'LineWidth',2);
-alpha(eb1, .15)
+% alpha(eb1, .15)
 eb2 =errorbar(xPos([2 4 6]), engagementMeanAll1NotDeceived, semEngagementNotDeceived,'.', 'Color', errorBarColor, 'MarkerSize', 5,'LineWidth',2);
-alpha(eb2, .15)
+% alpha(eb2, .15)
 
 groups = [xPos(1:2); xPos(3:4); xPos(5:6)];
 set(gca,'XTick', mean(groups,2), 'XTickLabel',conditionStrXTick,'FontName','Arial','FontSize',textSizexPos,'TickLabelInterpreter', 'tex')

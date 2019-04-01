@@ -114,24 +114,22 @@ for i = 1:numComponents
     val = AMean;
     plotHandle = plotHandleGroup1(iComp);
     
-    topoPlot = setMap(Topomap('JBhead96_sym.loc'));
-    topoPlot.setPlotHandle(plotHandle);
-    topoPlot.drawMaskHeadRing(.5);
-    topoPlot.drawNoseAndEars(.5);
-    topoPlot.formatPlot(plotHandle);
-    topoPlot.draw(val) 
+    scalpPlot = ScalpPlot('JBhead96_sym.loc');
+    scalpPlot.setMap();
+    scalpPlot.setPlotHandle(plotHandle);
+    scalpPlot.draw(val) 
 
     % set color axes for the topoplot
     minVal = min(val);
     maxVal = max(val);
     colorAxisRange = round([minVal, maxVal],1);
 
-    topoPlot.setColorAxis([minVal maxVal])
+    scalpPlot.setColorAxis([minVal maxVal])
     
     % Draw color bar to indicate color axis scale.
     cAxis = [colorAxisRange(1), mean(colorAxisRange), colorAxisRange(2)];
     cAxisTickLabel = {cAxis(1), '\muV', cAxis(3)};
-    topoPlot.setColorBar(cAxis, cAxisTickLabel)
+    scalpPlot.drawColorBar(cAxis, cAxisTickLabel)
     
     text(-.9,.9, ['Component ' num2str(iComp)], 'FontSize',18)
 
@@ -161,12 +159,10 @@ for i = 1:numComponents
     val = AMean;
     plotHandle = plotHandleGroup2(iComp);
     
-    topoPlot = setMap(Topomap('JBhead96_sym.loc'));
-    topoPlot.setPlotHandle(plotHandle);
-    topoPlot.drawMaskHeadRing(.5);
-    topoPlot.drawNoseAndEars(.5);
-    topoPlot.formatPlot(plotHandle);
-    topoPlot.draw(val) 
+    scalpPlot = ScalpPlot('JBhead96_sym.loc');
+    scalpPlot.setMap();
+    scalpPlot.setPlotHandle(plotHandle);
+    scalpPlot.draw(val) 
         
     % set color axes for the topoplot
     minY = min(val);
@@ -174,12 +170,12 @@ for i = 1:numComponents
     
     colorMapVal = jet;
     colorAxisRange = round([minY, maxY],1);
-    topoPlot.setColorAxis(colorAxisRange);
+    scalpPlot.setColorAxis(colorAxisRange);
     
     % Draw color bar to indicate color axis scale.
     cAxis = [colorAxisRange(1), mean(colorAxisRange), colorAxisRange(2)];
     cAxisTickLabel = {cAxis(1), '\muV', cAxis(3)};
-    topoPlot.setColorBar(cAxis, cAxisTickLabel);
+    scalpPlot.drawColorBar(cAxis, cAxisTickLabel);
     
     if i == 1
         h = text(-1.4, -.5, conditionStr(condIndex), 'FontWeight','Normal', 'FontSize', 12);
@@ -210,12 +206,10 @@ for i = 1:numComponents
     val = ADifference;
     plotHandle = plotHandleGroup3(iComp);
     
-    topoPlot = setMap(Topomap('JBhead96_sym.loc'));
-    topoPlot.setPlotHandle(plotHandle);
-    topoPlot.drawMaskHeadRing(.5);
-    topoPlot.drawNoseAndEars(.5);
-    topoPlot.formatPlot(plotHandle);
-    topoPlot.draw(val);
+    scalpPlot = ScalpPlot('JBhead96_sym.loc');
+    scalpPlot.setMap();
+    scalpPlot.setPlotHandle(plotHandle);
+    scalpPlot.draw(val);
     
     % set color axes for the topoplot
     minY = min(ADifference);
@@ -223,13 +217,12 @@ for i = 1:numComponents
     
     colorMapVal = hot;
     colorAxisRange = round([minY, maxY],2);
-    topoPlot.setColorAxis(colorAxisRange, colorMapVal);
+    scalpPlot.setColorAxis(colorAxisRange, colorMapVal);
     
     % Draw color bar to indicate color axis scale.
     cAxis = [colorAxisRange(1), mean(colorAxisRange), colorAxisRange(2)];
     cAxisTickLabel = {cAxis(1), '\muV', cAxis(3)};
-    topoPlot.setColorBar(cAxis, cAxisTickLabel);
-
+    scalpPlot.drawColorBar(cAxis, cAxisTickLabel);
 
     for j = 1:96
         x = A1(:,j,iComp);
@@ -245,14 +238,13 @@ for i = 1:numComponents
     isGreaterBci = isGreaterBci & sigIndex;
     isGreaterWatch = isGreaterWatch & sigIndex;
 
-    markerHandle1 = topoPlot.drawOnElectrode(isGreaterBci,'^', [0 0 1]);
-    markerHandle2 = topoPlot.drawOnElectrode(isGreaterWatch, '^', [0 1 0]);
-
+    markerHandle1 = scalpPlot.drawOnElectrode(isGreaterBci,'^', [0 0 1]);
+    markerHandle2 = scalpPlot.drawOnElectrode(isGreaterWatch, '^', [0 1 0]);
     
     if iComp == 1
         conditionStr = {'Sham > Passive (p < 0.05)', 'Passive > Sham (p < 0.05)'};
         markerHandles = [markerHandle1 markerHandle2];
-        topoPlot.drawMarkerLegend(conditionStr,'northoutside', markerHandles);
+        scalpPlot.drawMarkerLegend(markerHandles, conditionStr, 'northoutside');
     end
     
     if i == 1

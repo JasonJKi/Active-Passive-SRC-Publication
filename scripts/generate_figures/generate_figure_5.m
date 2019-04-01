@@ -129,16 +129,14 @@ for i = 1:numConditions
     cAxisTickLabel = {0 , '\muV', num2str(maxVal,3)};
 
     plotHandle = plotHandleGroup1(i);
-    headPlot = setMap(HeadPlot('JBhead96_sym.loc'));
-    headPlot.setPlotHandle(plotHandle);
-    headPlot.drawMaskHeadRing(.5);
-    headPlot.drawNoseAndEars(.5);
-    headPlot.formatPlot(plotHandle);
-    headPlot.draw(val);
     
+    scalpPlot = ScalpPlot('JBhead96_sym.loc');
+    scalpPlot.setMap();
+    scalpPlot.setPlotHandle(plotHandle);
     
-    headPlot.setColorAxis(colorAxisRange, colorMapVal); % set color axis range.
-    if  i == 1; headPlot.setColorBar(cAxis,cAxisTickLabel); end % Create color axes.
+    scalpPlot.draw(val);
+    scalpPlot.setColorAxis(colorAxisRange, colorMapVal); % set color axis range.
+    if  i == 1; scalpPlot.drawColorBar(cAxis,cAxisTickLabel); end % Create color axes.
     
     title(conditionStr{i},'FontSize',textSizePanelTitle, 'FontWeight','Normal');
     text(-.8, .8, panelLabel(i),'FontSize',textSizePanelTitle, 'FontWeight','Normal');
@@ -163,30 +161,28 @@ for i = 1:numComparison
     plotHandle = plotHandleGroup2(i);
     
     % Create topomap object to draw contour over electrodes.
-    headPlot = setMap(HeadPlot('JBhead96_sym.loc'));
-    headPlot.setPlotHandle(plotHandle);
-    headPlot.drawMaskHeadRing(.5);
-    headPlot.drawNoseAndEars(.5);
-    headPlot.formatPlot(plotHandle);
-    headPlot.draw(val);
+    scalpPlot = ScalpPlot('JBhead96_sym.loc');
+    scalpPlot.setMap();
+    scalpPlot.setPlotHandle(plotHandle);
+    scalpPlot.draw(val);
     
     % Draw significant points
     pval = pvalCorrectedPairedTests(i,:);
     sigValIndex = pval < .05;
     symbolStr = '^';
-    headPlot.drawOnElectrode(sigValIndex, symbolStr); % plot on siginficnt points
-    if  i == 1; headPlot.drawMarkerLegend({'p < 0.05'} ,'southeastoutside'); end
+    markerHandle = scalpPlot.drawOnElectrode(sigValIndex, symbolStr); % plot on siginficnt points
+    if  i == 1; scalpPlot.drawMarkerLegend(markerHandle, {'p < 0.05'} ,'southeastoutside'); end
     
     % set color axes for the headplot 
     colorMapVal = hot;
     colorAxisRange = [minVal 0];
-    headPlot.setColorAxis(colorAxisRange, colorMapVal);
+    scalpPlot.setColorAxis(colorAxisRange, colorMapVal);
     
     % Draw color bar to indicate color axis scale.
-    if  i == 1;
+    if  i == 1
         cAxis = [minVal, minVal/2, 0];
         cAxisTickLabel = {num2str(minVal,3) , '\muV', 0};
-        headPlot.setColorBar(cAxis, cAxisTickLabel);
+        scalpPlot.drawColorBar(cAxis, cAxisTickLabel);
     end
     
     title(comparisonStr{i},'FontSize',textSizePanelTitle, 'FontWeight','Normal');
