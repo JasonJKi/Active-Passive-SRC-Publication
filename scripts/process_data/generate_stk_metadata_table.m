@@ -1,5 +1,5 @@
 % static strings for the naming and file designation
-rootDir = '../';
+rootDir = '../../';
 dataDir = 'data/supertuxkart-active-passive/';
 conditionStrs = {
     'play'

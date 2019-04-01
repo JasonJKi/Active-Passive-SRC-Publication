@@ -1,6 +1,4 @@
-clear all; close all; clf
-rootDir = '../';
-load_all_deps(rootDir); % Load dependencies for processing of stim and eeg, and computing cca.
+rootDir = '../../';
 
 % Get metadata table for all SuperTuxkart races to easily load in video
 % and eeg data for processing.

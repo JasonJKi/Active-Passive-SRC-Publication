@@ -112,12 +112,10 @@ for i = 1:numComponents
         val = AMean;
         plotHandle = plotHandles{iCond}(iComp);
         
-        topoPlot = setMap(Topomap('JBhead96_sym.loc'));
-        topoPlot.setPlotHandle(plotHandle);
-        topoPlot.drawMaskHeadRing(.5);
-        topoPlot.drawNoseAndEars(.5);
-        topoPlot.formatPlot(plotHandle);
-        topoPlot.draw(val);
+        scalpPlot = ScalpPlot('JBhead96_sym.loc');
+        scalpPlot.setMap();
+        scalpPlot.setPlotHandle(plotHandle);
+        scalpPlot.draw(val);
 
         % set color axes for the topoplot
         minY = min(AMean);
@@ -125,12 +123,12 @@ for i = 1:numComponents
 
         colorMapVal = jet;
         colorAxisRange = round([minY, maxY],1);
-        topoPlot.setColorAxis(colorAxisRange, colorMapVal);
+        scalpPlot.setColorAxis(colorAxisRange, colorMapVal);
 
         % Draw color bar to indicate color axis scale.
         cAxis = [colorAxisRange(1), mean(colorAxisRange), colorAxisRange(2)];
         cAxisTickLabel = {cAxis(1), '\muV', cAxis(3)};
-        topoPlot.setColorBar(cAxis, cAxisTickLabel);
+        scalpPlot.drawColorBar(cAxis, cAxisTickLabel);
 
             
         if ii == 1

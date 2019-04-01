@@ -1,8 +1,7 @@
 % This script analyzes preprocessing pipeline for eeg for most optimal and robust eeg signal.
 % metadata for input data
 clear all
-rootDir = '../';
-load_all_deps(rootDir);
+rootDir = '../../';
 
 dataDir = 'data/supertuxkart-active-passive/';
 metadataTablePath  = [rootDir dataDir 'metadata/metadataTableFinal.mat'];
