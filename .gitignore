@@ -1,0 +1,26 @@
+*.asv
+tmp/
+
+# Output folders to be ignored
+output/figures/dump/
+output/figures/final/temporal_contrast/
+output/data_processed_for_analysis/*
+output/demo/
+output/data_processed_for_analysis/*
+!output/data_processed_for_analysis/optical_flow_mean.mat
+!output/data_processed_for_analysis/metadata.mat
+!output/data_processed_for_analysis/temporal_contrast_mean.mat
+!output/data_processed_for_analysis/temporal_contrast_mean_trf.mat
+
+# Data folders to be ignored
+data/supertuxkart-active-passive/*
+!data/supertuxkart-active-passive/demo-races
+!data/supertuxkart-active-passive/metadata
+data/supertuxkart-active-passive/metadata/old
+
+# Depedent libs to be ignored.
+libs/_external/eeg_lab/
+libs/_external/eeglab/
+
+# Ignore figrues that are not part of the press.
+scripts/generate_figures/prep-press/
