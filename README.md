@@ -17,7 +17,7 @@ Institution: Department of Biomedical Engineering, City College of New York, New
 For more about the paper go to ->
 
 
-### Getting Started
+## Getting Started
 #### Installing depedencies
 
 MATLAB
