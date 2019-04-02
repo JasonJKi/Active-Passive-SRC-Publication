@@ -9,13 +9,12 @@ While it is well known that vision guides movement, it is less appreciated that 
 
 <center>
     <img src='output/figures/final/figure_1.png' width=600 />
-    <figcaption> We measured visual evoked responses with and without motor en-gagement during presentation of race kart video game. </figcaption>
 </center>
+<center> We measured visual evoked responses with and without motor en-gagement during presentation of race kart video game. </center>
 
 <center>
     <img src='output/figures/final/figure_2.png' width=600 />
     <figcaption> Visual evoked response is enhanced during active motor engagment </figcaption>
-</p>
 </center>
 
 
