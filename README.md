@@ -5,7 +5,7 @@
 ###### Authors: Jason J. Ki, Lucas C. Parra, Jacek P. Dmochowski
 ###### Institution: Department of Biomedical Engineering, City College of New York, NewYork, NY 10031, USA
 
-## Quick Summary
+## Summary
 <p align="center">
     <img src='output/figures/final/figure_1.png' width=600>
     <figcaption> We measured visual evoked responses with and without motor en-gagement during presentation of race kart video game.        </figcaption>
