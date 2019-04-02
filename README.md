@@ -1,4 +1,5 @@
 # Active-Passive-SRC-Publication Source Code
+#### Under submission.
 
 Title: Action enhances perception:  Visually evoked neuralresponses are enhanced when engaging in a motor task
 Authors: Jason J. Ki, Lucas C. Parra, Jacek P. Dmochowski
@@ -11,11 +12,10 @@ Institution: Department of Biomedical Engineering, City College of New York, New
 
 <p align="center">
     <img src='output/figures/final/figure_2.png' width=600 />
-    <figcaption> Visual evoked response is enhanced during active motor engagment </figcaption>
+    <figcaption> And we found that visual evoked response is enhanced during active motor engagment. </figcaption>
 </p>
+For more about the paper go to ->
 
-
-#### Under submission.
 
 ### Getting Started
 #### Installing depedencies
