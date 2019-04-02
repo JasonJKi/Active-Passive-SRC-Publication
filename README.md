@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    <img src='output/figures/final/figure_2.png' width=600 />
+    <img src='output/figures/final/figure_3.png' width=600 />
     <figcaption> And we found that visual evoked response is enhanced during active motor engagment. </figcaption>
 </p>
 
