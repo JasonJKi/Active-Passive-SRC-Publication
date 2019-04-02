@@ -14,8 +14,6 @@
     <img src='output/figures/final/figure_2.png' width=600 />
     <figcaption> And we found that visual evoked response is enhanced during active motor engagment. </figcaption>
 </p>
-For more about the paper go to ->
-
 
 ## Getting Started
 #### Installing depedencies
