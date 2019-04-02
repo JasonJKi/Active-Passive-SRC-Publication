@@ -18,6 +18,6 @@ MATLAB
 
 ### To generate the figures
 ```
->> cd script
+>> cd scripts
 >> generate_all_figures.m
 ```
