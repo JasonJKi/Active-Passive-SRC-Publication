@@ -2,6 +2,12 @@
 
 <p>
     <img src='output/figures/final/figure_1.png' width=800 />
+    <figcaption> We measured visual evoked responses with and without motor en-gagement during presentation of race kart video game. </figcaption>
+</p>
+
+<p>
+    <img src='output/figures/final/figure_2.png' width=800 />
+    <figcaption> Visual evoked response is enhanced during active motor engagment </figcaption>
 </p>
 
 Title: Action enhances perception:  Visually evoked neuralresponses are enhanced when engaging in a motor task
