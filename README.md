@@ -13,7 +13,7 @@
 
 <p align="center">
     <img src='output/figures/final/figure_3.png' width=600 />
-    <figcaption> And we found that correlation evoked response and visual stimulus is enhanced during active motor engagment. </figcaption>
+    <figcaption> And we found that correlation of evoked response and visual stimulus is enhanced during active motor engagment. </figcaption>
 </p>
 
 ## Getting Started
