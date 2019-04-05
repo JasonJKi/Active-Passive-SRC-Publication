@@ -7,7 +7,7 @@
 
 ## Summary
 <p align="center">
-    <img src='output/figures/final/figure_1.png' width=800>
+    <img src='output/figures/final/figure_1.png' width=900>
     <figcaption> We measured visual evoked responses with and without motor en-gagement during presentation of race kart video game.        </figcaption>
 </p>
 
