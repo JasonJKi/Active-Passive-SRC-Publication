@@ -8,12 +8,12 @@
 ## Summary
 <p align="center">
     <img src='output/figures/final/figure_1.png' width=900>
-    <figcaption> We measured visual evoked responses with and without motor en-gagement during presentation of race kart video game.        </figcaption>
+    <figcaption> We measured correlation of visual stimulus activity with neural response with/without motor en-gagement during presentation of race kart video game.</figcaption>
 </p>
 
 <p align="center">
     <img src='output/figures/final/figure_3.png' width=1000 />
-    <figcaption> And we found that correlation of evoked response and visual stimulus is enhanced during active motor engagment. </figcaption>
+    <figcaption> And found that visul responses are more reliable during active motor engagment. </figcaption>
 </p>
 
 ## Getting Started
