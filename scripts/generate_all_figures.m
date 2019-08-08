@@ -48,7 +48,7 @@ input_for_analysis.locFile = 'JBhead96_sym.loc';
 
 % Set figure output folder
 figureDir = [rootDir 'output/figures/final/' stimulusType];
-if strcmp(additionalStr, '_v0'); figureDir = 'output/figures/final/'; end
+if strcmp(additionalStr, '_v0'); figureDir = [rootDir 'output/figures/final/']; end
 
 % Set supplementary figure output folder
 supFigureDir = [rootDir 'output/figures/final/supplementary/'];
@@ -56,6 +56,9 @@ supFigureDir = [rootDir 'output/figures/final/supplementary/'];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% figure 1 - experiement, data, analysis. 
 % generate_figures/generate_figure_1.pptx (slide 8 final)
+figureSize = [11,513,800,483];
+[fig10, stats10] = generate_figure_10(input_for_analysis, figureSize);
+print([figureDir '/figure_10'],'-dpng','-r0');
 
 %% figure 2 - spatial forward model and temporal filter of stimulus.
 figureSize = [11,513,800,483];
@@ -122,13 +125,8 @@ input_for_analysis.locFile = 'JBhead96_sym.loc';
 % [fig2, stats2] = generate_figure_2_(input_for_analysis, figureSize);
 % % print([figureDir '/figure_2'],'-dpng','-r0');
 figureSize = [0 500 1000 400];
-[fig, stats] = generate_figure_s1_2(input_for_analysis, figureSize);
+[fig8, stats8] = generate_figure_s1_2(input_for_analysis, figureSize);
 print([figureDir '/figure_8'],'-dpng','-r0');
 
 return
-
-
-
-
-
 

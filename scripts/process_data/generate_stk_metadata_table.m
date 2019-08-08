@@ -1,4 +1,4 @@
-% static strings for the naming and file designation
+s% static strings for the naming and file designation
 rootDir = '../../';
 dataDir = 'data/supertuxkart-active-passive/';
 conditionStrs = {
